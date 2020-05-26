@@ -7,7 +7,9 @@
     "ios": "react-native run-ios",
     "start": "react-native start",
     "test": "jest",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "e2e:build": "detox build -c ios.sim.debug",
+    "e2e:test": "detox test -c ios.sim.debug"
   },
   "dependencies": {
     "react": "16.11.0",
@@ -40,7 +42,7 @@
       },
       "ios.sim.debug": {
         "binaryPath": "ios/build/Build/Products/Debug-iphonesimulator/GiftedChatDetox.app",
-        "build": "export RCT_NO_LAUNCH_PACKAGER=true && xcodebuild -workspace ios/GiftedChatDetox.xcworkspace -scheme GiftedChatDetox -UseNewBuildSystem=NO -configuration Debug -sdk iphonesimulator -derivedDataPath ios/build -quiet",
+        "build": "xcodebuild -workspace ios/GiftedChatDetox.xcworkspace -scheme GiftedChatDetox -configuration Debug -sdk iphonesimulator -derivedDataPath ios/build",
         "type": "ios.simulator",
         "device": {
           "type": "iPhone 11 Pro"
